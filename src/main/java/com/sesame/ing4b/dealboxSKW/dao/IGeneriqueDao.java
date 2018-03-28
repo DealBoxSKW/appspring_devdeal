@@ -6,8 +6,14 @@ public interface IGeneriqueDao<Type> {
 	
 	
 	List<Type> findAll();
-	void save(Type t);
-	void update(Type t);
+	//void save(final Type t);
+	//void update(final Type t);
+
+	
+
+	
+
+	
 	
 
 }

@@ -5,6 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.sesame.ing4b.dealboxSKW.dao.AdresseDao;
 import com.sesame.ing4b.dealboxSKW.dao.DomaineDao;
+import com.sesame.ing4b.dealboxSKW.dao.GeneriqueDao;
 import com.sesame.ing4b.dealboxSKW.entities.Adresse;
 import com.sesame.ing4b.dealboxSKW.entities.Deal;
 import com.sesame.ing4b.dealboxSKW.entities.Domaine;
@@ -32,7 +33,7 @@ public class Test {
 	
 	private static void testHibernateDAOSupport() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext_dao.xml");
-		AdresseDao dao = (AdresseDao)context.getBean("adresseDao1");
+		GeneriqueDao<Adresse> dao = (GeneriqueDao<Adresse>)context.getBean("generiqueDao");
 		Adresse t=new Adresse(6L,"ariana","jjsvs",456,43,"gfgdhdh");
 		dao.save(t);
 		

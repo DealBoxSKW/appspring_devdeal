@@ -1,8 +1,9 @@
 package com.sesame.ing4b.dealboxSKW.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Contrat {
+public class Contrat implements Serializable {
 	
 	private Long id;
 	private Date dateContrat;
