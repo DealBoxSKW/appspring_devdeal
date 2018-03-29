@@ -1,5 +1,7 @@
 package com.sesame.ing4b.dealboxSKW.dao;
 
-public interface IContactDao extends IGeneriqueDao{
+import com.sesame.ing4b.dealboxSKW.entities.Contact;
+
+public interface IContactDao extends IGeneriqueDao<Contact , Long>{
 
 }

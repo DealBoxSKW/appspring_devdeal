@@ -3,12 +3,24 @@ package com.sesame.ing4b.dealboxSKW.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+
 public class Contrat implements Serializable {
+	
 	
 	private Long id;
 	private Date dateContrat;
 	private Double pousentage;
 	private String detail;
+	
+	
+	private Partenaire partenaire;
 	
 	
 	public Contrat(Long id, Date dateContrat, Double pousentage, String detail) {

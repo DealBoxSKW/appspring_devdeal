@@ -1,56 +1,105 @@
 package com.sesame.ing4b.dealboxSKW.dao;
 
 import java.io.Serializable;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.internal.SessionFactoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-
-import com.sesame.ing4b.dealboxSKW.config.AppHibernateConfig;
 
 @Repository
-public class GeneriqueDao<Type extends Serializable> implements IGeneriqueDao {
+public abstract class GeneriqueDao<E ,K extends Serializable> implements IGeneriqueDao<E,K> {
 
-	private Class<Type> clazz;
+	protected Class<? extends E> daoType;
 
-	public void setClazz(final Class<Type> clazzToSet) {
-		this.clazz = clazzToSet;
-	}
+	public GeneriqueDao() {
+        Type t = getClass().getGenericSuperclass();
+        ParameterizedType pt = (ParameterizedType) t;
+        daoType = (Class) pt.getActualTypeArguments()[0];
+    }
 
      @Autowired
      protected SessionFactory sessionFactory;
 	
 
-	@Override
-	public List<Type> findAll() {
-			
-		return sessionFactory.getCurrentSession().createQuery("from " + clazz.getName()).list();
-	}
-
-	public void save(Type t) {
-		// TODO Auto-generated method stub
-		sessionFactory.getCurrentSession().persist(t);
-
-	}
-
-	public void update(final Type entity) {
-		getCurrentSession().merge(entity);
-	}
-
-	public void delete(final Type entity) {
-		getCurrentSession().delete(entity);
-	}
 
 
 
-	protected Session getCurrentSession() {
+
+	protected Session currentSession() {
 		return sessionFactory.getCurrentSession();
+	}
+
+
+
+
+
+
+	@Override
+	public void add(E entity) {
+		// TODO Auto-generated method stub
+		currentSession().save(entity);
+		
+	}
+
+
+
+
+
+
+	@Override
+	public void saveOrUpdate(E entity) {
+		// TODO Auto-generated method stub
+		currentSession().saveOrUpdate(entity);
+		
+	}
+
+
+
+
+
+
+	@Override
+	public void update(E entity) {
+		// TODO Auto-generated method stub
+		currentSession().saveOrUpdate(entity);
+	}
+
+
+
+
+
+
+	@Override
+	public void remove(E entity) {
+		// TODO Auto-generated method stub
+		currentSession().delete(entity);
+	}
+
+
+
+
+
+
+	@Override
+	public E find(K key) {
+		// TODO Auto-generated method stub
+		return (E) currentSession().get(daoType, key);
+		
+	}
+
+
+
+
+
+
+	@Override
+	public List<E> getAll() {
+		// TODO Auto-generated method stub
+		return currentSession().createCriteria(daoType).list();
 	}
 
 }
