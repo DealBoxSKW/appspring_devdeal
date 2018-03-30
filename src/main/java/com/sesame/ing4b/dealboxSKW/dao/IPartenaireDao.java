@@ -1,5 +1,7 @@
 package com.sesame.ing4b.dealboxSKW.dao;
 
-public interface IPartenaireDao extends IGeneriqueDao {
+import com.sesame.ing4b.dealboxSKW.entities.Partenaire;
+
+public interface IPartenaireDao extends IGeneriqueDao<Partenaire,Long> {
 
 }
