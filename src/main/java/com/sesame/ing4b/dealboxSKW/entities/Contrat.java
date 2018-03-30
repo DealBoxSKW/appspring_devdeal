@@ -10,16 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-
+@Entity
 public class Contrat implements Serializable {
 	
-	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private Date dateContrat;
 	private Double pousentage;
 	private String detail;
 	
-	
+	@ManyToOne
+	@JoinColumn(name="id_partenaire")
 	private Partenaire partenaire;
 	
 	
