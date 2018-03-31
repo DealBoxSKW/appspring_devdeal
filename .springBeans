@@ -9,6 +9,7 @@
 	<configs>
 		<config>src/main/resources/applicationConfig_entities.xml</config>
 		<config>src/main/resources/applicationContext_dao.xml</config>
+		<config>src/main/resources/applicationContext_serv.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

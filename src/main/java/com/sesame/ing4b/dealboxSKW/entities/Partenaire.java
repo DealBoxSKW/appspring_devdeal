@@ -1,5 +1,6 @@
 package com.sesame.ing4b.dealboxSKW.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -8,7 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Partenaire {
+public class Partenaire implements Serializable {
 
 	@Id
 	private Long id;

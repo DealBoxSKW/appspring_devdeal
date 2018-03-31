@@ -1,5 +1,6 @@
 package com.sesame.ing4b.dealboxSKW.entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
@@ -12,8 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Deal {
-	//first test from karim
+
+public class Deal implements Serializable {
+
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

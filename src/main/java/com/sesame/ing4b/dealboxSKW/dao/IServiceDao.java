@@ -1,5 +1,7 @@
 package com.sesame.ing4b.dealboxSKW.dao;
 
-public interface IServiceDao extends IGeneriqueDao{
+import com.sesame.ing4b.dealboxSKW.entities.Service;
+
+public interface IServiceDao extends IGeneriqueDao<Service,Long>{
 
 }
