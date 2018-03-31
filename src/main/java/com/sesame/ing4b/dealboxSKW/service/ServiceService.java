@@ -20,7 +20,7 @@ public class ServiceService extends GenericServiceImp<Service, Long> implements 
 	}
 	@Autowired
 	public ServiceService(
-			@Qualifier("dealDao")GeneriqueDao<Service, Long> generiqueDao)
+			@Qualifier("serviceDao")GeneriqueDao<Service, Long> generiqueDao)
 	{
 		super(generiqueDao);
 		this.serviceDaoimp = (ServiceDao) generiqueDao;
