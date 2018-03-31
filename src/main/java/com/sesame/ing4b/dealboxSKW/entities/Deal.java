@@ -13,7 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
+
 public class Deal implements Serializable {
+
+
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
